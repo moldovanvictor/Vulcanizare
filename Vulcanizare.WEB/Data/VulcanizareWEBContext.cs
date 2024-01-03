@@ -15,5 +15,7 @@ namespace Vulcanizare.WEB.Data
         }
 
         public DbSet<Vulcanizare.WEB.Models.Tire> Tire { get; set; } = default!;
+
+        public DbSet<Vulcanizare.WEB.Models.User>? User { get; set; }
     }
 }
