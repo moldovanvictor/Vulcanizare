@@ -1,0 +1,90 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.Tires.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].TireType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Season)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Diameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire[0].Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tire) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TireType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

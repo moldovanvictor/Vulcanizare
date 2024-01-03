@@ -1,0 +1,79 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.Tires.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tire</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tire.Brand" class="control-label"></label>
+                <input asp-for="Tire.Brand" class="form-control" />
+                <span asp-validation-for="Tire.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Model" class="control-label"></label>
+                <input asp-for="Tire.Model" class="form-control" />
+                <span asp-validation-for="Tire.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Description" class="control-label"></label>
+                <input asp-for="Tire.Description" class="form-control" />
+                <span asp-validation-for="Tire.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.TireType" class="control-label"></label>
+                <input asp-for="Tire.TireType" class="form-control" />
+                <span asp-validation-for="Tire.TireType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Season" class="control-label"></label>
+                <input asp-for="Tire.Season" class="form-control" />
+                <span asp-validation-for="Tire.Season" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Width" class="control-label"></label>
+                <input asp-for="Tire.Width" class="form-control" />
+                <span asp-validation-for="Tire.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Diameter" class="control-label"></label>
+                <input asp-for="Tire.Diameter" class="form-control" />
+                <span asp-validation-for="Tire.Diameter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Profile" class="control-label"></label>
+                <input asp-for="Tire.Profile" class="form-control" />
+                <span asp-validation-for="Tire.Profile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Price" class="control-label"></label>
+                <input asp-for="Tire.Price" class="form-control" />
+                <span asp-validation-for="Tire.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tire.Image" class="control-label"></label>
+                <input asp-for="Tire.Image" class="form-control" />
+                <span asp-validation-for="Tire.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
