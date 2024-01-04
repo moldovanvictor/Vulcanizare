@@ -1,0 +1,67 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.Appointments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Appointment.UserId" class="control-label"></label>
+                <select asp-for="Appointment.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.TireId" class="control-label"></label>
+                <select asp-for="Appointment.TireId" class ="form-control" asp-items="ViewBag.TireId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.AppointmentDate" class="control-label"></label>
+                <input asp-for="Appointment.AppointmentDate" class="form-control" />
+                <span asp-validation-for="Appointment.AppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.ServiceType" class="control-label"></label>
+                <input asp-for="Appointment.ServiceType" class="form-control" />
+                <span asp-validation-for="Appointment.ServiceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.ServiceDuration" class="control-label"></label>
+                <input asp-for="Appointment.ServiceDuration" class="form-control" />
+                <span asp-validation-for="Appointment.ServiceDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Status" class="control-label"></label>
+                <input asp-for="Appointment.Status" class="form-control" />
+                <span asp-validation-for="Appointment.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Comment" class="control-label"></label>
+                <input asp-for="Appointment.Comment" class="form-control" />
+                <span asp-validation-for="Appointment.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.ServicePrice" class="control-label"></label>
+                <input asp-for="Appointment.ServicePrice" class="form-control" />
+                <span asp-validation-for="Appointment.ServicePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

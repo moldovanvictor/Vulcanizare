@@ -5,7 +5,18 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(
+    options =>
+    {
+        options.Conventions.AuthorizeFolder("/Admin");
+        options.Conventions.AuthorizeFolder("/Appointments");
+        options.Conventions.AuthorizeFolder("/CartItems");
+        options.Conventions.AuthorizeFolder("/Carts");
+        options.Conventions.AuthorizeFolder("/TireHotels");
+        options.Conventions.AuthorizeFolder("/TIres");
+        options.Conventions.AuthorizeFolder("/Users");
+    }
+    );
 builder.Services.AddDbContext<VulcanizareWEBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VulcanizareWEBContext") ?? throw new InvalidOperationException("Connection string 'VulcanizareWEBContext' not found.")));
 
@@ -13,6 +24,7 @@ builder.Services.AddDbContext<LibraryIdentityContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VulcanizareWEBContext") ?? throw new InvalidOperationException("Connection string 'VulcanizareWEBContext' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 var app = builder.Build();

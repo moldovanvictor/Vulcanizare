@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.TireHotels
 {
     [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
@@ -23,21 +23,22 @@ namespace Vulcanizare.WEB.Pages.Tires
         }
 
         [BindProperty]
-        public Tire Tire { get; set; } = default!;
+        public TireHotel TireHotel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.TireHotel == null)
             {
                 return NotFound();
             }
 
-            var tire =  await _context.Tire.FirstOrDefaultAsync(m => m.Id == id);
-            if (tire == null)
+            var tirehotel =  await _context.TireHotel.FirstOrDefaultAsync(m => m.Id == id);
+            if (tirehotel == null)
             {
                 return NotFound();
             }
-            Tire = tire;
+            TireHotel = tirehotel;
+           ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
             return Page();
         }
 
@@ -50,7 +51,7 @@ namespace Vulcanizare.WEB.Pages.Tires
                 return Page();
             }
 
-            _context.Attach(Tire).State = EntityState.Modified;
+            _context.Attach(TireHotel).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +59,7 @@ namespace Vulcanizare.WEB.Pages.Tires
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TireExists(Tire.Id))
+                if (!TireHotelExists(TireHotel.Id))
                 {
                     return NotFound();
                 }
@@ -71,9 +72,9 @@ namespace Vulcanizare.WEB.Pages.Tires
             return RedirectToPage("./Index");
         }
 
-        private bool TireExists(int id)
+        private bool TireHotelExists(int id)
         {
-          return (_context.Tire?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.TireHotel?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

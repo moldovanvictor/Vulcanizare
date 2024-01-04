@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.CartItems
 {
     [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
@@ -22,40 +22,40 @@ namespace Vulcanizare.WEB.Pages.Tires
         }
 
         [BindProperty]
-      public Tire Tire { get; set; } = default!;
+      public CartItem CartItem { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.CartItem == null)
             {
                 return NotFound();
             }
 
-            var tire = await _context.Tire.FirstOrDefaultAsync(m => m.Id == id);
+            var cartitem = await _context.CartItem.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (tire == null)
+            if (cartitem == null)
             {
                 return NotFound();
             }
             else 
             {
-                Tire = tire;
+                CartItem = cartitem;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.CartItem == null)
             {
                 return NotFound();
             }
-            var tire = await _context.Tire.FindAsync(id);
+            var cartitem = await _context.CartItem.FindAsync(id);
 
-            if (tire != null)
+            if (cartitem != null)
             {
-                Tire = tire;
-                _context.Tire.Remove(Tire);
+                CartItem = cartitem;
+                _context.CartItem.Remove(CartItem);
                 await _context.SaveChangesAsync();
             }
 

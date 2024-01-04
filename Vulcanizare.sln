@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanizare.WEB", "Vulcanizare.WEB\Vulcanizare.WEB.csproj", "{1D857A1E-5DE9-4F96-B6D8-33951FAD4108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcanizare.MAUI", "Vulcanizare.MAUI\Vulcanizare.MAUI.csproj", "{AF7C4E48-55BF-46DE-B01A-669D2FF73534}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanizare.MAUI", "Vulcanizare.MAUI\Vulcanizare.MAUI.csproj", "{AF7C4E48-55BF-46DE-B01A-669D2FF73534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Users
+namespace Vulcanizare.WEB.Pages.Appointments
 {
-    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly Vulcanizare.WEB.Data.VulcanizareWEBContext _context;
@@ -21,13 +19,15 @@ namespace Vulcanizare.WEB.Pages.Users
             _context = context;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<Appointment> Appointment { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.User != null)
+            if (_context.Appointment != null)
             {
-                User = await _context.User.ToListAsync();
+                Appointment = await _context.Appointment
+                .Include(a => a.Tire)
+                .Include(a => a.User).ToListAsync();
             }
         }
     }

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.TireHotels
 {
     [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
@@ -23,22 +23,23 @@ namespace Vulcanizare.WEB.Pages.Tires
 
         public IActionResult OnGet()
         {
+        ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Tire Tire { get; set; } = default!;
+        public TireHotel TireHotel { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Tire == null || Tire == null)
+          if (!ModelState.IsValid || _context.TireHotel == null || TireHotel == null)
             {
                 return Page();
             }
 
-            _context.Tire.Add(Tire);
+            _context.TireHotel.Add(TireHotel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

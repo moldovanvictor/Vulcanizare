@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.Appointments
 {
     [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
@@ -22,40 +22,40 @@ namespace Vulcanizare.WEB.Pages.Tires
         }
 
         [BindProperty]
-      public Tire Tire { get; set; } = default!;
+      public Appointment Appointment { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.Appointment == null)
             {
                 return NotFound();
             }
 
-            var tire = await _context.Tire.FirstOrDefaultAsync(m => m.Id == id);
+            var appointment = await _context.Appointment.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (tire == null)
+            if (appointment == null)
             {
                 return NotFound();
             }
             else 
             {
-                Tire = tire;
+                Appointment = appointment;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.Appointment == null)
             {
                 return NotFound();
             }
-            var tire = await _context.Tire.FindAsync(id);
+            var appointment = await _context.Appointment.FindAsync(id);
 
-            if (tire != null)
+            if (appointment != null)
             {
-                Tire = tire;
-                _context.Tire.Remove(Tire);
+                Appointment = appointment;
+                _context.Appointment.Remove(Appointment);
                 await _context.SaveChangesAsync();
             }
 

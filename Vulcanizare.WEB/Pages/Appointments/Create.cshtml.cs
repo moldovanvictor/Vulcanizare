@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.Appointments
 {
     [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
@@ -23,22 +23,24 @@ namespace Vulcanizare.WEB.Pages.Tires
 
         public IActionResult OnGet()
         {
+        ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
+        ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Tire Tire { get; set; } = default!;
+        public Appointment Appointment { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Tire == null || Tire == null)
+          if (!ModelState.IsValid || _context.Appointment == null || Appointment == null)
             {
                 return Page();
             }
 
-            _context.Tire.Add(Tire);
+            _context.Appointment.Add(Appointment);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

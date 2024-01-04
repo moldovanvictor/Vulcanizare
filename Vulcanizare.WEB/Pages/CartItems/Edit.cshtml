@@ -1,0 +1,50 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.CartItems.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CartItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CartItem.Id" />
+            <div class="form-group">
+                <label asp-for="CartItem.CartId" class="control-label"></label>
+                <select asp-for="CartItem.CartId" class="form-control" asp-items="ViewBag.CartId"></select>
+                <span asp-validation-for="CartItem.CartId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CartItem.Quantity" class="control-label"></label>
+                <input asp-for="CartItem.Quantity" class="form-control" />
+                <span asp-validation-for="CartItem.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CartItem.AppointmentId" class="control-label"></label>
+                <select asp-for="CartItem.AppointmentId" class="form-control" asp-items="ViewBag.AppointmentId"></select>
+                <span asp-validation-for="CartItem.AppointmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CartItem.TireId" class="control-label"></label>
+                <select asp-for="CartItem.TireId" class="form-control" asp-items="ViewBag.TireId"></select>
+                <span asp-validation-for="CartItem.TireId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

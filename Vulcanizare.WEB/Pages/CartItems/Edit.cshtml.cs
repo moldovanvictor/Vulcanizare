@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.CartItems
 {
     [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
@@ -23,21 +23,24 @@ namespace Vulcanizare.WEB.Pages.Tires
         }
 
         [BindProperty]
-        public Tire Tire { get; set; } = default!;
+        public CartItem CartItem { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Tire == null)
+            if (id == null || _context.CartItem == null)
             {
                 return NotFound();
             }
 
-            var tire =  await _context.Tire.FirstOrDefaultAsync(m => m.Id == id);
-            if (tire == null)
+            var cartitem =  await _context.CartItem.FirstOrDefaultAsync(m => m.Id == id);
+            if (cartitem == null)
             {
                 return NotFound();
             }
-            Tire = tire;
+            CartItem = cartitem;
+           ViewData["AppointmentId"] = new SelectList(_context.Set<Appointment>(), "Id", "Id");
+           ViewData["CartId"] = new SelectList(_context.Set<Cart>(), "Id", "Id");
+           ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
             return Page();
         }
 
@@ -50,7 +53,7 @@ namespace Vulcanizare.WEB.Pages.Tires
                 return Page();
             }
 
-            _context.Attach(Tire).State = EntityState.Modified;
+            _context.Attach(CartItem).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +61,7 @@ namespace Vulcanizare.WEB.Pages.Tires
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TireExists(Tire.Id))
+                if (!CartItemExists(CartItem.Id))
                 {
                     return NotFound();
                 }
@@ -71,9 +74,9 @@ namespace Vulcanizare.WEB.Pages.Tires
             return RedirectToPage("./Index");
         }
 
-        private bool TireExists(int id)
+        private bool CartItemExists(int id)
         {
-          return (_context.Tire?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.CartItem?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

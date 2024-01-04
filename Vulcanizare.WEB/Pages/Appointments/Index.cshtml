@@ -1,0 +1,83 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.Appointments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="d-flex justify-content-between">
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <p>
+        <a href="javascript:history.back()">Back</a>
+    </p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].ServiceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].ServiceDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].ServicePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment[0].Tire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Appointment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tire.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

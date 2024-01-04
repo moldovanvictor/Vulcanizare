@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Vulcanizare.WEB.Data;
 using Vulcanizare.WEB.Models;
 
-namespace Vulcanizare.WEB.Pages.Tires
+namespace Vulcanizare.WEB.Pages.CartItems
 {
     [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
@@ -23,22 +23,25 @@ namespace Vulcanizare.WEB.Pages.Tires
 
         public IActionResult OnGet()
         {
+        ViewData["AppointmentId"] = new SelectList(_context.Set<Appointment>(), "Id", "Id");
+        ViewData["CartId"] = new SelectList(_context.Set<Cart>(), "Id", "Id");
+        ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Tire Tire { get; set; } = default!;
+        public CartItem CartItem { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Tire == null || Tire == null)
+          if (!ModelState.IsValid || _context.CartItem == null || CartItem == null)
             {
                 return Page();
             }
 
-            _context.Tire.Add(Tire);
+            _context.CartItem.Add(CartItem);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

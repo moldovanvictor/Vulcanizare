@@ -1,0 +1,40 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.TireHotels.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TireHotel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TireHotel.Id" />
+            <div class="form-group">
+                <label asp-for="TireHotel.UserId" class="control-label"></label>
+                <select asp-for="TireHotel.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="TireHotel.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TireHotel.TireStatus" class="control-label"></label>
+                <input asp-for="TireHotel.TireStatus" class="form-control" />
+                <span asp-validation-for="TireHotel.TireStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
