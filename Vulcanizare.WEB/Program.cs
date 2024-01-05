@@ -13,8 +13,9 @@ builder.Services.AddRazorPages(
         options.Conventions.AuthorizeFolder("/CartItems");
         options.Conventions.AuthorizeFolder("/Carts");
         options.Conventions.AuthorizeFolder("/TireHotels");
-        options.Conventions.AuthorizeFolder("/TIres");
+        options.Conventions.AuthorizeFolder("/Tires");
         options.Conventions.AuthorizeFolder("/Users");
+        options.Conventions.AuthorizeFolder("/UserPages");
     }
     );
 builder.Services.AddDbContext<VulcanizareWEBContext>(options =>
