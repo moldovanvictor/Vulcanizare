@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.CreateAppointmentPage"
+                         Title="Create Appointment">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="User ID" />
+            <Entry x:Name="UserIdEntry" />
+
+            <Label Text="Tire ID" />
+            <Entry x:Name="TireIdEntry" />
+
+            <Label Text="Appointment Date" />
+            <DatePicker x:Name="AppointmentDatePicker" />
+
+            <Label Text="Service Type" />
+            <Entry x:Name="ServiceTypeEntry" />
+
+            <Label Text="Service Duration" />
+            <Entry x:Name="ServiceDurationEntry" />
+
+            <Label Text="Status" />
+            <Entry x:Name="StatusEntry" />
+
+            <Label Text="Comment" />
+            <Entry x:Name="CommentEntry" />
+
+            <Label Text="Service Price" />
+            <Entry x:Name="ServicePriceEntry" />
+
+            <Button Text="Create Appointment" Clicked="OnCreateAppointmentClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,7 +14,8 @@
 
         <ShellContent
             Title="Appointments"
-            ContentTemplate="{DataTemplate local:Appointments}"/>
+            ContentTemplate="{DataTemplate local:Appointments}"/>
+
     </TabBar>
 
 </Shell>

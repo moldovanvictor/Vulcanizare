@@ -8,13 +8,13 @@
         public DateTime AppointmentDate { get; set; }
         public string ServiceType { get; set; }
         public int ServiceDuration { get; set; }
-        public string Status { get; set; }
+        public string? Status { get; set; }
         public string Comment { get; set; }
         public decimal ServicePrice { get; set; }
 
         // Navigation properties
-        public User User { get; set; }
-        public Tire Tire { get; set; }
+        public User? User { get; set; }
+        public Tire? Tire { get; set; }
     }
 
 }
