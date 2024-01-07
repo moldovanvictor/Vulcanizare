@@ -1,7 +1,7 @@
 ﻿@page
 @model Vulcanizare.WEB.Pages.UserPages.AppointmentModel
 
-<h1>Programare Serviciu</h1>
+<h1>Schedule an appointment</h1>
 
 <h4>Appointment</h4>
 <hr />
@@ -13,28 +13,32 @@
             <!-- Removed the UserId selection -->
 
             <div class="form-group">
-                <label asp-for="Appointment.TireId" class="control-label"></label>
-                <select asp-for="Appointment.TireId" class="form-control" asp-items="ViewBag.TireId"></select>
+                <label asp-for="Appointment.TireId" class="control-label">Tire</label>
+                <select asp-for="Appointment.TireId" class="form-control" asp-items="@Model.TireItems"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.AppointmentDate" class="control-label"></label>
+                <label asp-for="Appointment.AppointmentDate" class="control-label">Appointment Date</label>
                 <input asp-for="Appointment.AppointmentDate" class="form-control" />
                 <span asp-validation-for="Appointment.AppointmentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceType" class="control-label"></label>
-                <input asp-for="Appointment.ServiceType" class="form-control" />
+                <label asp-for="Appointment.ServiceType" class="control-label">Service Type</label>
+                <select asp-for="Appointment.ServiceType" class="form-control">
+                    <option value="TireMountingDismounting">Tire Mounting/Dismounting for Cars</option>
+                    <option value="TireBalancing">Tire Balancing for Cars</option>
+                    <option value="RepairOfTirePuncture">Repair of Tire Puncture</option>
+                    <option value="RollingAndStraighteningSteelRim">Rolling and Straightening Steel Rim</option>
+                    <option value="CompleteSetOf4TiresChange">Complete Set of 4 Tires Change</option>
+                    <option value="StraighteningAlloyRims">Straightening Alloy Rims</option>
+                    <option value="TireMountingDismountingOnAluminumRim">Tire Mounting/Dismounting on Aluminum Rim</option>
+                    <option value="TirePressureCheck">Tire Pressure Check</option>
+                </select>
                 <span asp-validation-for="Appointment.ServiceType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceDuration" class="control-label"></label>
-                <input asp-for="Appointment.ServiceDuration" class="form-control" />
+                <label asp-for="Appointment.ServiceDuration" class="control-label">Service Duration ( in minutes )</label>
+                <input asp-for="Appointment.ServiceDuration" class="form-control" readonly />
                 <span asp-validation-for="Appointment.ServiceDuration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Appointment.Status" class="control-label"></label>
-                <input asp-for="Appointment.Status" class="form-control" />
-                <span asp-validation-for="Appointment.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Appointment.Comment" class="control-label"></label>
@@ -42,8 +46,8 @@
                 <span asp-validation-for="Appointment.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServicePrice" class="control-label"></label>
-                <input asp-for="Appointment.ServicePrice" class="form-control" />
+                <label asp-for="Appointment.ServicePrice" class="control-label">Service Price ( in lei )</label>
+                <input asp-for="Appointment.ServicePrice" class="form-control" readonly />
                 <span asp-validation-for="Appointment.ServicePrice" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -54,10 +58,47 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="/UserPages/Index">Back</a>
 </div>
 
 @section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Handle change event for ServiceType dropdown
+            $("#Appointment_ServiceType").change(function () {
+                // Call a JavaScript function to update ServiceDuration and ServicePrice
+                updateServiceDetails();
+            });
+
+            // Initial update when the page loads
+            updateServiceDetails();
+        });
+
+        function updateServiceDetails() {
+            // Get the selected ServiceType
+            var selectedServiceType = $("#Appointment_ServiceType").val();
+
+            // Implement logic to update ServiceDuration and ServicePrice based on selectedServiceType
+            // For now, I'll provide a simple example; you may need to customize it based on your requirements
+            var durationPriceMapping = {
+                "TireMountingDismounting": { duration: 10, price: 20.00 },
+                "TireBalancing": { duration: 15, price: 10.00 },
+                "RepairOfTirePuncture": { duration: 20, price: 20.00 },
+                "RollingAndStraighteningSteelRim": { duration: 30, price: 35.00 },
+                "CompleteSetOf4TiresChange": { duration: 60, price: 90.00 },
+                "StraighteningAlloyRims": { duration: 45, price: 45.00 },
+                "TireMountingDismountingOnAluminumRim": { duration: 15, price: 20.00 },
+                "TirePressureCheck": { duration: 5, price: 2.00 }
+                // Add more mappings as needed
+            };
+
+            // Update ServiceDuration and ServicePrice fields
+            if (durationPriceMapping[selectedServiceType]) {
+                $("#Appointment_ServiceDuration").val(durationPriceMapping[selectedServiceType].duration);
+                $("#Appointment_ServicePrice").val(durationPriceMapping[selectedServiceType].price);
+            }
+        }
+    </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

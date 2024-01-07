@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vulcanizare.WEB.Data;
 
@@ -11,9 +12,10 @@ using Vulcanizare.WEB.Data;
 namespace Vulcanizare.WEB.Migrations
 {
     [DbContext(typeof(VulcanizareWEBContext))]
-    partial class VulcanizareWEBContextModelSnapshot : ModelSnapshot
+    [Migration("20240106170727_CrudTest3")]
+    partial class CrudTest3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

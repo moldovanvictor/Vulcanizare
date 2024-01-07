@@ -11,7 +11,7 @@ using Vulcanizare.WEB.Models;
 
 namespace Vulcanizare.WEB.Pages.Appointments
 {
-    [Authorize(Roles = "Admin")]
+    
     public class CreateModel : PageModel
     {
         private readonly Vulcanizare.WEB.Data.VulcanizareWEBContext _context;
@@ -23,8 +23,8 @@ namespace Vulcanizare.WEB.Pages.Appointments
 
         public IActionResult OnGet()
         {
-        ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
-        ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+            ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Brand");
+            ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
             return Page();
         }
 
@@ -37,6 +37,11 @@ namespace Vulcanizare.WEB.Pages.Appointments
         {
           if (!ModelState.IsValid || _context.Appointment == null || Appointment == null)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
+                foreach (var error in errors)
+                {
+                    Console.WriteLine($"Model error: {error}");
+                }
                 return Page();
             }
 
