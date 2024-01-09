@@ -60,14 +60,26 @@ namespace Vulcanizare.WEB.Pages.UserPages
             {
                 return Page();
             }
-            else
+            Appointment.UserId = user.Id;
+
+            _context.Appointment.Add(Appointment);
+            await _context.SaveChangesAsync();
+
+            // If the appointment type is "TireStorageInaHotel", add a new record to the TireHotel table
+            if (Appointment.ServiceType == "TireStorageinaTireHotel")
             {
-                Appointment.UserId = user.Id;
-                
-                _context.Appointment.Add(Appointment);
+                var tireHotel = new TireHotel
+                {
+                    UserId = user.Id,
+                    TireStatus = "Stored"
+                };
+
+                _context.TireHotel.Add(tireHotel);
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToPage("./Index");
         }
+
     }
 }

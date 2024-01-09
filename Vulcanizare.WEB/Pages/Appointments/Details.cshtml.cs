@@ -28,7 +28,10 @@ namespace Vulcanizare.WEB.Pages.Appointments
                 return NotFound();
             }
 
-            var appointment = await _context.Appointment.FirstOrDefaultAsync(m => m.Id == id);
+            var appointment = await _context.Appointment
+                .Include(a => a.User)
+                .Include(a => a.Tire)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (appointment == null)
             {
                 return NotFound();

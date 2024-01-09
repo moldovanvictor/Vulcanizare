@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int UserId { get; set; }
+        public string? Status { get; set; }
 
         // Navigation properties
         public User User { get; set; }

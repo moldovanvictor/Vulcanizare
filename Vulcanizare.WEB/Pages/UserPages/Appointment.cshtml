@@ -24,6 +24,7 @@
             <div class="form-group">
                 <label asp-for="Appointment.ServiceType" class="control-label">Service Type</label>
                 <select asp-for="Appointment.ServiceType" class="form-control">
+                    <option value="TireStorageinaTireHotel">Tire Storage in a Tire Hotel</option>
                     <option value="TireMountingDismounting">Tire Mounting/Dismounting for Cars</option>
                     <option value="TireBalancing">Tire Balancing for Cars</option>
                     <option value="RepairOfTirePuncture">Repair of Tire Puncture</option>
@@ -36,7 +37,7 @@
                 <span asp-validation-for="Appointment.ServiceType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceDuration" class="control-label">Service Duration ( in minutes )</label>
+                <label id="serviceDurationLabel" asp-for="Appointment.ServiceDuration" class="control-label">Service Duration ( in minutes )</label>
                 <input asp-for="Appointment.ServiceDuration" class="form-control" readonly />
                 <span asp-validation-for="Appointment.ServiceDuration" class="text-danger"></span>
             </div>
@@ -57,9 +58,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-page="/UserPages/Index">Back</a>
-</div>
+
 
 @section Scripts {
     <script>
@@ -88,7 +87,8 @@
                 "CompleteSetOf4TiresChange": { duration: 60, price: 90.00 },
                 "StraighteningAlloyRims": { duration: 45, price: 45.00 },
                 "TireMountingDismountingOnAluminumRim": { duration: 15, price: 20.00 },
-                "TirePressureCheck": { duration: 5, price: 2.00 }
+                "TirePressureCheck": { duration: 5, price: 2.00 },
+                "TireStorageinaTireHotel": { duration: 1, price: 200.00 }
                 // Add more mappings as needed
             };
 
@@ -96,6 +96,11 @@
             if (durationPriceMapping[selectedServiceType]) {
                 $("#Appointment_ServiceDuration").val(durationPriceMapping[selectedServiceType].duration);
                 $("#Appointment_ServicePrice").val(durationPriceMapping[selectedServiceType].price);
+                if (selectedServiceType === "TireStorageinaTireHotel") {
+                    $("#serviceDurationLabel").text("Service duration ( in years )");
+                } else {
+                    $("#serviceDurationLabel").text("Service duration ( in minutes )");
+                }
             }
         }
     </script>

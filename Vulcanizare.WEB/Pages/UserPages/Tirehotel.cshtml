@@ -1,0 +1,14 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.UserPages.TirehotelModel
+
+<h1>Tire Hotel</h1>
+
+@if (Model.TireHotelData != null && Model.TireHotelData.Any())
+{
+    <p>Your tires are safe with us, the status is <b>@Model.TireHotelData[0].TireStatus</b>.</p>
+    <p>You may retrieve them until <b>@(Model.AppointmentDate.AddYears(1).ToString("dd/MM/yyyy"))</b>.</p>
+}
+else
+{
+    <p>You've got no tires with us. <a asp-page="/UserPages/Appointment">Leave your tires at Vulcanizare!</a></p>
+}

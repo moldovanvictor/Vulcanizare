@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanizare.WEB", "Vulcaniz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcanizare.MAUI", "Vulcanizare.MAUI\Vulcanizare.MAUI.csproj", "{AF7C4E48-55BF-46DE-B01A-669D2FF73534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{CBC15324-1C47-4F44-8B53-385FFFE6EA7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{CBC15324-1C47-4F44-8B53-385FFFE6EA7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

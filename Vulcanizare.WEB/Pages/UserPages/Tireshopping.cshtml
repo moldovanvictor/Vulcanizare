@@ -1,0 +1,40 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.UserPages.TireShoppingModel
+@{
+    ViewData["Title"] = "Tire Shopping";
+}
+
+<style>
+    .card-img {
+        height: 200px; /* Set the desired height for the images */
+        object-fit: cover; /* Maintain aspect ratio while covering the entire container */
+    }
+</style>
+
+<h1>Tire Shopping</h1>
+
+<form method="post" asp-page-handler="GoToCart">
+    <button type="submit" class="btn btn-primary">View Cart and Checkout</button>
+</form>
+
+<div class="row">
+    @foreach (var tire in Model.Tires)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <!-- Add a class to the image for styling -->
+                <img src="~/Tireimages/@tire.Image" class="card-img-top card-img" alt="@tire.Brand @tire.Model">
+                <div class="card-body">
+                    <h5 class="card-title">@tire.Brand @tire.Model</h5>
+                    <p class="card-text">@tire.Description</p>
+                    <p class="card-text">Price: $@tire.Price</p>
+                    <form method="post" asp-page-handler="AddToCart" asp-route-tireId="@tire.Id">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+    
+
+</div>
