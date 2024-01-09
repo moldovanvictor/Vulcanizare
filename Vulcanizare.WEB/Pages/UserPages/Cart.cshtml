@@ -1,0 +1,178 @@
+﻿@page
+@model Vulcanizare.WEB.Pages.UserPages.CartModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<h2>Current Cart</h2>
+@if (Model.GroupedCartItems.Any())
+{
+    <table>
+        <tr>
+            <th>Marcă</th>
+            <th>Model</th>
+            <th>Descriere</th>
+            <th>Tipul anvelopelor</th>
+            <th>Anotimp</th>
+            <th>Lățime</th>
+            <th>Diametru</th>
+            <th>Profil</th>
+            <th>Preț</th>
+            <th>Cantitate</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model.GroupedCartItems)
+        {
+            <tr>
+                <td>@item.Key.Brand</td>
+                <td>@item.Key.Model</td>
+                <td>@item.Key.Description</td>
+                <td>@item.Key.TireType</td>
+                <td>@item.Key.Season</td>
+                <td>@item.Key.Width</td>
+                <td>@item.Key.Diameter</td>
+                <td>@item.Key.Profile</td>
+                <td>@item.Key.Price</td>
+                <td>@item.Value</td>
+                <td>
+                    
+                    <form method="post" asp-page-handler="IncreaseQuantity" asp-route-id="@item.Key.Id" class="button-size">
+                        <input type="submit" value="+" />
+                    </form>
+                    <form method="post" asp-page-handler="DecreaseQuantity" asp-route-id="@item.Key.Id" class="button-size">
+                        <input type="submit" value="-" />
+                    </form>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="8">Total</td>
+            <td>@Model.GroupedCartItems.Sum(item => item.Key.Price * item.Value)</td>
+            <td>@Model.GroupedCartItems.Sum(item => item.Value)</td>
+            <td></td>
+        </tr>
+    </table>
+    <form method="post">
+        <input type="submit" value="Checkout" asp-page-handler="Checkout" class="checkout-button" />
+    </form>
+}
+else
+{
+    <p>No items in the cart.</p>
+    <a href="~/UserPages/TireShopping" class="go-shopping-button">Go Shopping</a>
+}
+
+
+
+<h2>Previous Orders</h2>
+@if (Model.PreviousCarts.Any())
+{
+    <table>
+        <tr>
+            <th>Order</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        @for (var i = 0; i < Model.PreviousCarts.Count; i++)
+        {
+            <tr>
+                <td>@((i + 1).ToString())</td>
+                <td>@Model.PreviousCarts[i].CartItems.Sum(ci => ci.Tire.Price * ci.Quantity)</td>
+                <td>@Model.PreviousCarts[i].Status</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No previous orders.</p>
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .checkout-button {
+        background-color: #4CAF50; /* verde */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+    }
+
+    .checkout-button:hover {
+        background-color: #4CAF90;
+        color: black;
+    }
+
+    .go-shopping-button {
+        display: inline-block;
+        background-color: #4CAF50; /* green */
+        color: white;
+        text-align: center;
+        padding: 15px 32px;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+    }
+
+        .go-shopping-button:hover {
+            background-color: #4CAF90;
+            color: black;
+        }
+
+    .button-size {
+        width: 30px; /* Adjust as needed */
+        height: 30px; /* Adjust as needed */
+        overflow: hidden;
+    }
+
+        .button-size input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #3498db; /* Blue color */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+
+            .button-size input:hover {
+                background-color: #2980b9; /* Darker blue on hover */
+            }
+
+
+</style>

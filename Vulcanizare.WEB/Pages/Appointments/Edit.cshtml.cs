@@ -38,8 +38,8 @@ namespace Vulcanizare.WEB.Pages.Appointments
                 return NotFound();
             }
             Appointment = appointment;
-           ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
-           ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+           ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Brand");
+           ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
             return Page();
         }
 

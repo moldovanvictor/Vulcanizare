@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Tireimages\bfgoodrich_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\bridgestone_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\continental_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\dunlop_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\goodyear_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\hankook_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\michelin_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\pirelli_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\toyo_image_link.jpg" />
+    <None Include="wwwroot\Tireimages\vredestein_image_link.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />

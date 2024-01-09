@@ -15,12 +15,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Appointment.Id" />
             <div class="form-group">
-                <label asp-for="Appointment.UserId" class="control-label"></label>
+                <label asp-for="Appointment.UserId" class="control-label">User</label>
                 <select asp-for="Appointment.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
                 <span asp-validation-for="Appointment.UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.TireId" class="control-label"></label>
+                <label asp-for="Appointment.TireId" class="control-label">Tire</label>
                 <select asp-for="Appointment.TireId" class="form-control" asp-items="ViewBag.TireId"></select>
                 <span asp-validation-for="Appointment.TireId" class="text-danger"></span>
             </div>
@@ -30,13 +30,23 @@
                 <span asp-validation-for="Appointment.AppointmentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceType" class="control-label"></label>
-                <input asp-for="Appointment.ServiceType" class="form-control" />
+                <label asp-for="Appointment.ServiceType" class="control-label">Service Type</label>
+                <select asp-for="Appointment.ServiceType" class="form-control">
+                    <option value="TireStorageinaTireHotel">Tire Storage in a Tire Hotel</option>
+                    <option value="TireMountingDismounting">Tire Mounting/Dismounting for Cars</option>
+                    <option value="TireBalancing">Tire Balancing for Cars</option>
+                    <option value="RepairOfTirePuncture">Repair of Tire Puncture</option>
+                    <option value="RollingAndStraighteningSteelRim">Rolling and Straightening Steel Rim</option>
+                    <option value="CompleteSetOf4TiresChange">Complete Set of 4 Tires Change</option>
+                    <option value="StraighteningAlloyRims">Straightening Alloy Rims</option>
+                    <option value="TireMountingDismountingOnAluminumRim">Tire Mounting/Dismounting on Aluminum Rim</option>
+                    <option value="TirePressureCheck">Tire Pressure Check</option>
+                </select>
                 <span asp-validation-for="Appointment.ServiceType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceDuration" class="control-label"></label>
-                <input asp-for="Appointment.ServiceDuration" class="form-control" />
+                <label id="serviceDurationLabel" asp-for="Appointment.ServiceDuration" class="control-label">Service Duration ( in minutes )</label>
+                <input asp-for="Appointment.ServiceDuration" class="form-control" readonly />
                 <span asp-validation-for="Appointment.ServiceDuration" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -66,5 +76,50 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            // Handle change event for ServiceType dropdown
+            $("#Appointment_ServiceType").change(function () {
+                // Call a JavaScript function to update ServiceDuration and ServicePrice
+                updateServiceDetails();
+            });
+
+            // Initial update when the page loads
+            updateServiceDetails();
+        });
+
+        function updateServiceDetails() {
+            // Get the selected ServiceType
+            var selectedServiceType = $("#Appointment_ServiceType").val();
+
+            // Implement logic to update ServiceDuration and ServicePrice based on selectedServiceType
+            // For now, I'll provide a simple example; you may need to customize it based on your requirements
+            var durationPriceMapping = {
+                "TireMountingDismounting": { duration: 10, price: 20.00 },
+                "TireBalancing": { duration: 15, price: 10.00 },
+                "RepairOfTirePuncture": { duration: 20, price: 20.00 },
+                "RollingAndStraighteningSteelRim": { duration: 30, price: 35.00 },
+                "CompleteSetOf4TiresChange": { duration: 60, price: 90.00 },
+                "StraighteningAlloyRims": { duration: 45, price: 45.00 },
+                "TireMountingDismountingOnAluminumRim": { duration: 15, price: 20.00 },
+                "TirePressureCheck": { duration: 5, price: 2.00 },
+                "TireStorageinaTireHotel": { duration: 1, price: 200.00 }
+                // Add more mappings as needed
+            };
+
+            // Update ServiceDuration and ServicePrice fields
+            if (durationPriceMapping[selectedServiceType]) {
+                $("#Appointment_ServiceDuration").val(durationPriceMapping[selectedServiceType].duration);
+                $("#Appointment_ServicePrice").val(durationPriceMapping[selectedServiceType].price);
+                if (selectedServiceType === "TireStorageinaTireHotel") {
+                    $("#serviceDurationLabel").text("Service duration ( in years )");
+                } else {
+                    $("#serviceDurationLabel").text("Service duration ( in minutes )");
+                }
+            }
+        }
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
