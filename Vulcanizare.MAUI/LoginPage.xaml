@@ -4,8 +4,8 @@
              x:Class="Vulcanizare.MAUI.LoginPage"
              Title="LoginPage"
              Shell.NavBarIsVisible="False">
-    
-        <Grid BackgroundColor="White">
+
+    <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="220" />
             <RowDefinition Height="*" />
@@ -41,7 +41,7 @@
                 </Frame>
                 <Frame BackgroundColor="Transparent" BorderColor="#5537dc" HorizontalOptions="FillAndExpand" CornerRadius="20" Padding="0" Margin="0,10,0,0">
                     <StackLayout Orientation="Horizontal">
-                        <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="Gray" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,0,20,0" />
+                        <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="Gray" TextColor="Black" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,0,20,0" IsPassword="True" />
                     </StackLayout>
                 </Frame>
 
@@ -52,7 +52,7 @@
                 </StackLayout>
 
                 <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="#5537dc" TextColor="White" CornerRadius="20" Margin="0,10,0,0" Padding="0" HeightRequest="50" HorizontalOptions="FillAndExpand" />
-                
+
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
                     <Label Text="Not registered?" TextColor="Gray" FontSize="Small"/>
                     <Label Text="Create an account" TextColor="#5537dc" FontSize="Small"/>

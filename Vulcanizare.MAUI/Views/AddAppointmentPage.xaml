@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.Views.AddAppointmentPage"
+             Title="Adaugă Programare">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label 
+                Text="Adaugă o Programare Nouă"
+                FontSize="24"
+                HorizontalOptions="Center"
+                FontAttributes="Bold" />
+
+            <Entry Placeholder="Titlu Programare" FontSize="Medium"/>
+            <DatePicker Format="D" FontSize="Medium"/>
+            <TimePicker Format="HH:mm" FontSize="Medium"/>
+            <Editor Placeholder="Descriere" FontSize="Medium" AutoSize="TextChanges"/>
+            <Entry Placeholder="Alte detalii" FontSize="Medium"/>
+
+            <Button Text="Salvează Programarea"
+                    BackgroundColor="#5537dc"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

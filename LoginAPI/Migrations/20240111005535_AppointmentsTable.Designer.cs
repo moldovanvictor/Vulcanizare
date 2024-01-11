@@ -4,6 +4,7 @@ using LoginAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoginAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240111005535_AppointmentsTable")]
+    partial class AppointmentsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,7 @@ namespace LoginAPI.Migrations
 
                     b.HasIndex("UserInfoUserId");
 
-                    b.ToTable("Appointment", (string)null);
+                    b.ToTable("Appointment");
                 });
 
             modelBuilder.Entity("LoginAPI.Models.Tire", b =>
@@ -114,7 +116,7 @@ namespace LoginAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tire", (string)null);
+                    b.ToTable("Tire");
                 });
 
             modelBuilder.Entity("LoginAPI.Models.UserInfo", b =>
@@ -133,7 +135,7 @@ namespace LoginAPI.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UserInfo", (string)null);
+                    b.ToTable("UserInfo");
                 });
 
             modelBuilder.Entity("LoginAPI.Models.Appointment", b =>

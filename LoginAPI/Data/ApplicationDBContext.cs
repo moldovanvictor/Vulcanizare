@@ -15,5 +15,9 @@ namespace LoginAPI.Data
         }
 
         public DbSet<LoginAPI.Models.UserInfo> UserInfo { get; set; } = default!;
+
+        public DbSet<LoginAPI.Models.Tire>? Tire { get; set; }
+
+        public DbSet<LoginAPI.Models.Appointment>? Appointment { get; set; }
     }
 }

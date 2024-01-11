@@ -10,5 +10,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 		this.BindingContext = new AppShellViewModel();
 		Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
+		Routing.RegisterRoute(nameof(AddTirePage), typeof(AddTirePage));
 	}
 }

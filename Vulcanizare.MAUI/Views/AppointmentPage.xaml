@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.Views.AppointmentPage"
+             Title="Programări">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label 
+                Text="Programările Mele"
+                FontSize="24"
+                HorizontalOptions="Center" />
+
+            <Button Text="Adaugă Programare"
+                    BackgroundColor="#5537dc" 
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Clicked="OnAddAppointmentClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
