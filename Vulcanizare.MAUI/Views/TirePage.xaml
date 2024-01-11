@@ -6,10 +6,6 @@
              xmlns:local="clr-namespace:Vulcanizare.MAUI.ViewModels"
              Title="Anvelope Disponibile">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adaugă" Command="{Binding OnAddTireCommand}" />
-    </ContentPage.ToolbarItems>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -47,19 +43,24 @@
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
-                            <Grid Padding="10" ColumnSpacing="10">
+                            <Grid Padding="10" ColumnSpacing="10" RowSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Text="{Binding Brand}" Margin="5" />
-                                <Label Grid.Column="1" Text="{Binding Model}" Margin="5" />
-                                <Label Grid.Column="2" Text="{Binding Price}" Margin="5" TextColor="Green" FontAttributes="Bold" />
+                                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding Image}" HeightRequest="100" Aspect="AspectFit" HorizontalOptions="Center"/>
 
-                                <Image Source="edit.png" Grid.Column="3" WidthRequest="30" HeightRequest="30" HorizontalOptions="End">
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Brand}" Margin="5" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Model}" Margin="5" />
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Price}" Margin="5" TextColor="Green" FontAttributes="Bold" />
+
+                                <Image Source="edit.png" Grid.Row="1" Grid.Column="3" WidthRequest="30" HeightRequest="30" HorizontalOptions="End">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type local:TirePageViewModel}},
                                             Path=TireTappedEditCommand}" CommandParameter="{Binding .}"/>

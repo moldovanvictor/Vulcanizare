@@ -6,4 +6,11 @@ public partial class ContactPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnTrimiteMesajClicked(object sender, EventArgs e)
+    {
+        nume.Text = "";
+        email.Text = "";
+        mesaj.Text = "";
+    }
 }

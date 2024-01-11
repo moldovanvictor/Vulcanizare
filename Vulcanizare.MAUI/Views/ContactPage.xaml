@@ -15,10 +15,10 @@
                 Text="Aveti intrebari sau nevoie de asistenta? Completati formularul de mai jos sau folositi detaliile noastre de contact."
                 HorizontalTextAlignment="Center"/>
 
-            <Entry Placeholder="Nume"/>
-            <Entry Placeholder="Email"/>
-            <Editor Placeholder="Mesajul tău" HeightRequest="100"/>
-            <Button Text="Trimite Mesaj" BackgroundColor="#5537dc" TextColor="White"/>
+            <Entry x:Name="nume" Placeholder="Nume"/>
+            <Entry x:Name="email" Placeholder="Email"/>
+            <Editor x:Name="mesaj" Placeholder="Mesajul tău" HeightRequest="100"/>
+            <Button Text="Trimite Mesaj" BackgroundColor="#5537dc" TextColor="White" Clicked="OnTrimiteMesajClicked"/>
 
             <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
                 <VerticalStackLayout>

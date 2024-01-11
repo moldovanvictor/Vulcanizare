@@ -13,6 +13,5 @@ namespace Vulcanizare.MAUI.Models
         public const string Appointment = "appointment.png";
         public const string Contact = "contact.png";
         public const string About = "about.png";
-
     }
 }

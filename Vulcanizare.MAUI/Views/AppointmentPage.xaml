@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Vulcanizare.MAUI.Views.AppointmentPage"
-             Title="Programări">
+             Title="Programari">
 
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="30">
 
             <Label 
-                Text="Programările Mele"
+                Text="Programarile Mele"
                 FontSize="24"
                 HorizontalOptions="Center" />
 
-            <Button Text="Adaugă Programare"
+            <Button Text="Adauga Programare"
                     BackgroundColor="#5537dc" 
                     TextColor="White"
                     CornerRadius="10"

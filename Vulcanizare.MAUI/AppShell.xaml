@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Vulcanizare.MAUI"
     xmlns:views="clr-namespace:Vulcanizare.MAUI.Views"
-    xmlns:model="clr-namespace:Vulcanizare.MAUI.Models"
+    xmlns:models="clr-namespace:Vulcanizare.MAUI.Models"
     Shell.TabBarIsVisible="False">
 
     <ShellContent
@@ -16,11 +16,11 @@
         Route="LoginPage" />
 
     <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Home" ContentTemplate="{DataTemplate views:HomePage}"/>
-        <ShellContent Title="Tires" ContentTemplate="{DataTemplate views:TirePage}"/>
-        <ShellContent Title="Appointments" ContentTemplate="{DataTemplate views:AppointmentPage}"/>
-        <ShellContent Title="Contact" ContentTemplate="{DataTemplate views:ContactPage}"/>
-        <ShellContent Title="About" ContentTemplate="{DataTemplate views:AboutPage}"/>
+        <ShellContent Title="Acasa" Icon="{x:Static models:Icons.Home}" ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="Anvelope" Icon="{x:Static models:Icons.Tire}" ContentTemplate="{DataTemplate views:TirePage}"/>
+        <ShellContent Title="Programari" Icon="{x:Static models:Icons.Appointment}" ContentTemplate="{DataTemplate views:AppointmentPage}"/>
+        <ShellContent Title="Contact" Icon="{x:Static models:Icons.Contact}" ContentTemplate="{DataTemplate views:ContactPage}"/>
+        <ShellContent Title="Despre Noi" Icon="{x:Static models:Icons.About}" ContentTemplate="{DataTemplate views:AboutPage}"/>
     </FlyoutItem>
 
     <Shell.FlyoutFooter>
