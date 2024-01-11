@@ -35,6 +35,11 @@ namespace Vulcanizare.WEB.Pages.Tires
         {
           if (!ModelState.IsValid || _context.Tire == null || Tire == null)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
+                foreach (var error in errors)
+                {
+                    Console.WriteLine($"Model error: {error}");
+                }
                 return Page();
             }
 

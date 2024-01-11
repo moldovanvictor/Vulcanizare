@@ -25,9 +25,6 @@
                 @Html.DisplayNameFor(model => model.CartItem[0].Cart)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CartItem[0].Appointment)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CartItem[0].Tire)
             </th>
             <th></th>
@@ -43,10 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Cart.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Appointment.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tire.Id)
+                @Html.DisplayFor(modelItem => item.Tire.Brand)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

@@ -38,7 +38,7 @@ namespace Vulcanizare.WEB.Pages.Carts
                 return NotFound();
             }
             Cart = cart;
-           ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+           ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
             return Page();
         }
 

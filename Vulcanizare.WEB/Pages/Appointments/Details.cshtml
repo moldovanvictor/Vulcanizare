@@ -24,7 +24,11 @@
             @Html.DisplayFor(model => model.Appointment.ServiceType)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Appointment.ServiceDuration)
+            @{
+                var serviceType = Model.Appointment.ServiceType;
+                var label = serviceType == "TireStorageinaTireHotel" ? "ServiceDuration (in years)" : "ServiceDuration (in minutes)";
+            }
+            @Html.DisplayName(label)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Appointment.ServiceDuration)
@@ -58,6 +62,13 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Appointment.Tire.Brand)
+            @Html.DisplayFor(model => model.Appointment.Tire.Model)
+            @Html.DisplayFor(model => model.Appointment.Tire.TireType)
+            @Html.DisplayFor(model => model.Appointment.Tire.Season)
+            @Html.DisplayFor(model => model.Appointment.Tire.Width)
+            @Html.DisplayFor(model => model.Appointment.Tire.Diameter)
+            @Html.DisplayFor(model => model.Appointment.Tire.Profile)
+            @Html.DisplayFor(model => model.Appointment.Tire.Price)
         </dd>
     </dl>
 </div>
@@ -65,3 +76,5 @@
     <a asp-page="./Edit" asp-route-id="@Model.Appointment?.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+
+

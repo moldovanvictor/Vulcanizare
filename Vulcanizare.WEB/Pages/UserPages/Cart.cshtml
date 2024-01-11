@@ -12,7 +12,7 @@
 }
 
 <h2>Current Cart</h2>
-@if (Model.GroupedCartItems.Any())
+@if (Model.GroupedCartItems != null && Model.GroupedCartItems.Any())
 {
     <table>
         <tr>
@@ -72,7 +72,7 @@ else
 
 
 <h2>Previous Orders</h2>
-@if (Model.PreviousCarts.Any())
+@if (Model.PreviousCarts != null && Model.PreviousCarts.Any())
 {
     <table>
         <tr>

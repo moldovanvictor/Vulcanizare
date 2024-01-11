@@ -40,6 +40,7 @@ namespace Vulcanizare.WEB.Pages.Appointments
             {
                 Appointment = appointment;
             }
+
             return Page();
         }
     }

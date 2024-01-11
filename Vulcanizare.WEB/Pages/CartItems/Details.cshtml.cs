@@ -28,7 +28,10 @@ namespace Vulcanizare.WEB.Pages.CartItems
                 return NotFound();
             }
 
-            var cartitem = await _context.CartItem.FirstOrDefaultAsync(m => m.Id == id);
+            var cartitem = await _context.CartItem
+                .Include(c=>c.Cart)
+                .Include(t=>t.Tire)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (cartitem == null)
             {
                 return NotFound();

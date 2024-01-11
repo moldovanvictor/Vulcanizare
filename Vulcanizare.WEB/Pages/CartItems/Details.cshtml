@@ -24,16 +24,17 @@
             @Html.DisplayFor(model => model.CartItem.Cart.Id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CartItem.Appointment)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CartItem.Appointment.Id)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CartItem.Tire)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CartItem.Tire.Id)
+            @Html.DisplayFor(model => model.CartItem.Tire.Brand)
+            @Html.DisplayFor(model => model.CartItem.Tire.Model)
+            @Html.DisplayFor(model => model.CartItem.Tire.TireType)
+            @Html.DisplayFor(model => model.CartItem.Tire.Season)
+            @Html.DisplayFor(model => model.CartItem.Tire.Width)
+            @Html.DisplayFor(model => model.CartItem.Tire.Diameter)
+            @Html.DisplayFor(model => model.CartItem.Tire.Profile)
+            @Html.DisplayFor(model => model.CartItem.Tire.Price)
         </dd>
     </dl>
 </div>

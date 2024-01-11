@@ -15,7 +15,13 @@
             @Html.DisplayNameFor(model => model.Cart.User)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cart.User.Id)
+            @Html.DisplayFor(model => model.Cart.User.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cart.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cart.Status)
         </dd>
     </dl>
 </div>

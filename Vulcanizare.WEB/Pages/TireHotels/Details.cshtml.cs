@@ -28,7 +28,9 @@ namespace Vulcanizare.WEB.Pages.TireHotels
                 return NotFound();
             }
 
-            var tirehotel = await _context.TireHotel.FirstOrDefaultAsync(m => m.Id == id);
+            var tirehotel = await _context.TireHotel
+                .Include(t=>t.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (tirehotel == null)
             {
                 return NotFound();

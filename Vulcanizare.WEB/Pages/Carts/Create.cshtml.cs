@@ -23,7 +23,7 @@ namespace Vulcanizare.WEB.Pages.Carts
 
         public IActionResult OnGet()
         {
-        ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
             return Page();
         }
 
@@ -34,8 +34,13 @@ namespace Vulcanizare.WEB.Pages.Carts
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Cart == null || Cart == null)
+            if (!ModelState.IsValid || _context.Cart == null || Cart == null)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
+                foreach (var error in errors)
+                {
+                    Console.WriteLine($"Model error: {error}");
+                }
                 return Page();
             }
 

@@ -40,7 +40,7 @@ namespace Vulcanizare.WEB.Pages.CartItems
             CartItem = cartitem;
            ViewData["AppointmentId"] = new SelectList(_context.Set<Appointment>(), "Id", "Id");
            ViewData["CartId"] = new SelectList(_context.Set<Cart>(), "Id", "Id");
-           ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Id");
+           ViewData["TireId"] = new SelectList(_context.Tire, "Id", "Brand");
             return Page();
         }
 

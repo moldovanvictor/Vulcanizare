@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Cart[0].User)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cart[0].Status)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,8 +31,11 @@
 @foreach (var item in Model.Cart) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.User.Email)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

@@ -38,7 +38,7 @@ namespace Vulcanizare.WEB.Pages.TireHotels
                 return NotFound();
             }
             TireHotel = tirehotel;
-           ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+           ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
             return Page();
         }
 
