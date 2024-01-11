@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.Views.HomePage"
+             Title="Vulcanizare">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label 
+                Text="Bine ati venit la Vulcanizarea Noastra!"
+                FontSize="24"
+                HorizontalOptions="Center" />
+            <Label 
+                Text="Servicii profesionale de vulcanizare si intretinere a anvelopelor."
+                HorizontalTextAlignment="Center"/>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Montare/Demontare Anvelope" FontAttributes="Bold"/>
+                    <Label Text="Schimb rapid si eficient al anvelopelor."/>
+                    <Label Text="Durata: 10 min, Pret: 20 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Reparatie Punctura Anvelopa" FontAttributes="Bold"/>
+                    <Label Text="Reparatii rapide si eficiente pentru orice tip de anvelopa."/>
+                    <Label Text="Durata: 20 min, Pret: 20 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Indreptare Janta Otel" FontAttributes="Bold"/>
+                    <Label Text="Serviciu de indreptare si rotire a jantelor de otel."/>
+                    <Label Text="Durata: 30 min, Pret: 35 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Schimb Set Complet 4 Anvelope" FontAttributes="Bold"/>
+                    <Label Text="Schimb complet pentru un set de 4 anvelope."/>
+                    <Label Text="Durata: 60 min, Pret: 90 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Indreptare Jante Aliaj" FontAttributes="Bold"/>
+                    <Label Text="Serviciu profesional de indreptare a jantelor din aliaj."/>
+                    <Label Text="Durata: 45 min, Pret: 45 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Montare/Demontare Anvelope pe Janta Aluminiu" FontAttributes="Bold"/>
+                    <Label Text="Montare si demontare specializata pentru jante de aluminiu."/>
+                    <Label Text="Durata: 15 min, Pret: 20 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Verificare Presiune Anvelope" FontAttributes="Bold"/>
+                    <Label Text="Control riguros al presiunii anvelopelor."/>
+                    <Label Text="Durata: 5 min, Pret: 2 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Depozitare Anvelope in Hotel de Anvelope" FontAttributes="Bold"/>
+                    <Label Text="Serviciu de depozitare a anvelopelor in conditii optime."/>
+                    <Label Text="Durata: 1 an, Pret: 200 lei" FontAttributes="Italic"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

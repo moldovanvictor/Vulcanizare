@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.Views.AddTirePage"
+             xmlns:local="clr-namespace:Vulcanizare.MAUI.ViewModels"
+             Title="Detalii Anvelopa"
+             BackgroundColor="White">
+    <ScrollView>
+    <StackLayout Spacing="5" Padding="15" Margin="10">
+        
+        <VerticalStackLayout IsVisible="false">
+            <Label Text="ID" FontSize="Medium" IsEnabled="False" />
+            <Entry Text="{Binding Tire.Id, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+        </VerticalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Brand" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Brand, Mode=TwoWay}" FontSize="Medium" IsEnabled="False" />
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Model" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Model, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Description" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Description, Mode=TwoWay}" FontSize="Medium" IsEnabled="False" />
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Width" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Width, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Diameter" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Diameter, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Profile" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Profile, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Tire Type" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.TireType, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Season" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Season, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Price" FontSize="Medium"  />
+                <Entry Text="{Binding Tire.Price, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Image" FontSize="Medium"  />
+                <!--<Entry Text="{Binding Tire.Image, Mode=TwoWay}" FontSize="Medium" IsEnabled="False"/>
+            <BoxView HeightRequest="0.5" BackgroundColor="Gray" />-->
+            <Image Source="{Binding Tire.Image}" HeightRequest="100" WidthRequest="100" Margin="10"/>
+        </VerticalStackLayout>
+
+            
+
+            <!--<StackLayout Orientation="Horizontal">
+            <Button Text="Add Tire" Command="{Binding SaveTireCommand}" HorizontalOptions="FillAndExpand" />
+            <Button Text="Cancel" BackgroundColor="PaleVioletRed" Command="{Binding OnCancelCommand}" HorizontalOptions="FillAndExpand" />
+        </StackLayout>-->
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

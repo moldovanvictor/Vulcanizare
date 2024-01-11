@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vulcanizare.MAUI.Models
 {
-    internal class Appointment
+    class Appointment
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -19,7 +19,6 @@ namespace Vulcanizare.MAUI.Models
         public decimal ServicePrice { get; set; }
 
         // Navigation properties
-        public User? User { get; set; }
-        public Tire? Tire { get; set; }
+        public UserInfo? UserInfo { get; set; }
     }
 }

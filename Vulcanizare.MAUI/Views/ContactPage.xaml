@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vulcanizare.MAUI.Views.ContactPage"
+             Title="Contact Vulcanizare">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label 
+                Text="Contactati-ne"
+                FontSize="24"
+                HorizontalOptions="Center" />
+            <Label 
+                Text="Aveti intrebari sau nevoie de asistenta? Completati formularul de mai jos sau folositi detaliile noastre de contact."
+                HorizontalTextAlignment="Center"/>
+
+            <Entry x:Name="nume" Placeholder="Nume"/>
+            <Entry x:Name="email" Placeholder="Email"/>
+            <Editor x:Name="mesaj" Placeholder="Mesajul tău" HeightRequest="100"/>
+            <Button Text="Trimite Mesaj" BackgroundColor="#5537dc" TextColor="White" Clicked="OnTrimiteMesajClicked"/>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="LightGray">
+                <VerticalStackLayout>
+                    <Label Text="Telefon: +40 712 345 678" FontAttributes="Bold"/>
+                    <Label Text="Email: contact@vulcanizare.ro"/>
+                    <Label Text="Adresă: Strada Teodor Mihail, Nr. 10, Cluj-Napoca"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

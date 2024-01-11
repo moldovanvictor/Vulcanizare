@@ -4,18 +4,28 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Vulcanizare.MAUI"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:Vulcanizare.MAUI.Views"
+    xmlns:models="clr-namespace:Vulcanizare.MAUI.Models"
+    Shell.TabBarIsVisible="False">
 
-    <TabBar>
-        <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        Route="LoginPage" />
 
-        <ShellContent
-            Title="Appointments"
-            ContentTemplate="{DataTemplate local:Appointments}"/>
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Acasa" Icon="{x:Static models:Icons.Home}" ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="Anvelope" Icon="{x:Static models:Icons.Tire}" ContentTemplate="{DataTemplate views:TirePage}"/>
+        <ShellContent Title="Programari" Icon="{x:Static models:Icons.Appointment}" ContentTemplate="{DataTemplate views:AppointmentPage}"/>
+        <ShellContent Title="Contact" Icon="{x:Static models:Icons.Contact}" ContentTemplate="{DataTemplate views:ContactPage}"/>
+        <ShellContent Title="Despre Noi" Icon="{x:Static models:Icons.About}" ContentTemplate="{DataTemplate views:AboutPage}"/>
+    </FlyoutItem>
 
-    </TabBar>
-
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" BackgroundColor="#5537dc"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
 </Shell>
